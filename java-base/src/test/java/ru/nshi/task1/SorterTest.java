@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 public class SorterTest {
     /**
      * Метод предоставляющий реализации сортировки.
+     *
      * @return
      */
     public static Stream<Arguments> sorters() {
@@ -22,6 +23,7 @@ public class SorterTest {
 
     /**
      * Простая проверка сортировки
+     *
      * @param sorter
      */
     @ParameterizedTest
@@ -35,6 +37,7 @@ public class SorterTest {
 
     /**
      * Проверка сортировки пустого массива
+     *
      * @param sorter
      */
     @ParameterizedTest
@@ -47,6 +50,7 @@ public class SorterTest {
 
     /**
      * Проверка выбрасывания ошибки, при отправке null
+     *
      * @param sorter
      */
     @ParameterizedTest
@@ -58,6 +62,7 @@ public class SorterTest {
 
     /**
      * Проверка массива, на сортировку элементов по возрастанию
+     *
      * @param array
      * @return
      */
