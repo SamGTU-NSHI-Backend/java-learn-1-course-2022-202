@@ -1,6 +1,6 @@
 package ru.nshi.task1;
 
-public class SorterImpl implements Sorter {
+public class BogoSorter implements Sorter {
     @Override
     public int[] sort(int[] numbers) {
         if (numbers == null) {

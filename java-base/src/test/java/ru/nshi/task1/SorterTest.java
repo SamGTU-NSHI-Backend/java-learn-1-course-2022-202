@@ -8,12 +8,22 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class SorterTest {
+    /**
+     * Метод предоставляющий реализации сортировки.
+     * @return
+     */
     public static Stream<Arguments> sorters() {
-//      ToDo: Stream.of(Arguments.of(new SortImpl()),
-//       Arguments.of(new SortOtherImpl()));
-        return Stream.of(Arguments.of(new SorterImpl()));
+//      ToDo: 
+//      return Stream.of(Arguments.of(new BogoSorter()),
+//                       Arguments.of(new BubbleSorter()),
+//                       Arguments.of(new InsertionSorter()));
+        return Stream.of(Arguments.of(new BogoSorter()));
     }
 
+    /**
+     * Простая проверка сортировки
+     * @param sorter
+     */
     @ParameterizedTest
     @MethodSource("sorters")
     void simpleTest(Sorter sorter) {
@@ -23,6 +33,10 @@ public class SorterTest {
         Assertions.assertTrue(isSorted(actual));
     }
 
+    /**
+     * Проверка сортировки пустого массива
+     * @param sorter
+     */
     @ParameterizedTest
     @MethodSource("sorters")
     void emptyTest(Sorter sorter) {
@@ -31,6 +45,10 @@ public class SorterTest {
         Assertions.assertNotSame(array, actual);
     }
 
+    /**
+     * Проверка выбрасывания ошибки, при отправке null
+     * @param sorter
+     */
     @ParameterizedTest
     @MethodSource("sorters")
     void nullTest(Sorter sorter) {
@@ -38,6 +56,11 @@ public class SorterTest {
         Assertions.assertThrows(NullPointerException.class, () -> sorter.sort(array));
     }
 
+    /**
+     * Проверка массива, на сортировку элементов по возрастанию
+     * @param array
+     * @return
+     */
     boolean isSorted(int[] array) {
         int n = array.length;
         for (int i = 1; i < n; i++) {
