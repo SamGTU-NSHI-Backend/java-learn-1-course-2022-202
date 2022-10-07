@@ -89,8 +89,8 @@ public class WorkWithArraysAndStrings {
 
 //      Разделение одной строки на несколько строк
         String[] words = "Hello world, i am tea pot!"
-                .replaceAll("[^a-zA-Z\\s]", "")
-                .split("\\s+");
+            .replaceAll("[^a-zA-Z\\s]", "")
+            .split("\\s+");
         for (int i = 0; i < words.length; i++) {
             System.out.println(words[i]);
         }
