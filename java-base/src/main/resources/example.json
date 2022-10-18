@@ -1,0 +1,17 @@
+{
+  "field": "value",
+  "field2": {
+    "field2.field1": "value2"
+  },
+  "nums": [
+    1,
+    2,
+    3
+  ],
+  "objs": [
+    {
+      "field1": "dfdf"
+    },
+    "gdf"
+  ]
+}
