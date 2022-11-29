@@ -1,5 +1,6 @@
 package ru.nshi.api;
 
+import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -46,7 +47,14 @@ public class FirstServlet extends HttpServlet {
             return;
         }
 
-        Message value = mapper.readValue(req.getInputStream(), Message.class);
+        Message value;
+        try {
+            value = mapper.readValue(req.getInputStream(), Message.class);
+        } catch (DatabindException ex) {
+            resp.setStatus(400);
+            mapper.writeValue(resp.getWriter(), Map.of("error", "incorrect json"));
+            return;
+        }
 
         if (value == null || value.getValue() == null) {
             resp.setStatus(400);
