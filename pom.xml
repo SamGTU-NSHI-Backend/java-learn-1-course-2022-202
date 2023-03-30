@@ -12,6 +12,7 @@
         <module>java-base</module>
         <module>servlet-learn</module>
         <module>spring-learn</module>
+        <module>db-test-task</module>
     </modules>
 
     <properties>
