@@ -143,7 +143,7 @@ components:
       schema:
         type: integer
         minimum: 1
-        
+
     LimitQuery:
       name: limit
       in: query
@@ -152,7 +152,7 @@ components:
         type: integer
         minimum: 1
         default: 5
-  
+
   requestBodies:
     ListenSong:
       required: false
@@ -197,14 +197,14 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error"
-    
+
     InputValidationError:
       description: Invalid input parameters
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/Error"
-    
+
     Song:
       description: Successful operation
       content:
@@ -264,7 +264,7 @@ components:
         - $ref: '#/components/schemas/ListenSong'
       example:
         auditions: 1
-        songs: [1, 2, 3]
+        songs: [ 1, 2, 3 ]
 
     CreateSong:
       type: object

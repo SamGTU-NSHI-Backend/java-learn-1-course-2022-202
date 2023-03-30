@@ -2,10 +2,7 @@ package ru.nshi.service;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -17,11 +14,6 @@ public class TestPrototypeService implements BeanNameAware {
     private MessageService messageService;
     private String beanName;
 
-    @PostConstruct
-    public void init(){
-        System.out.println("PostConstruct");
-    }
-
     public TestPrototypeService() {
         System.out.println("Constructor called");
         messageService = null;
@@ -29,6 +21,11 @@ public class TestPrototypeService implements BeanNameAware {
 
     public TestPrototypeService(MessageService messageService) {
         this.messageService = messageService;
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("PostConstruct");
     }
 
     public String getPrototypeValue() {
@@ -55,7 +52,7 @@ public class TestPrototypeService implements BeanNameAware {
     }
 
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         System.out.println("Destroying bean " + beanName);
     }
 }
