@@ -1,5 +1,6 @@
 package ru.nshi.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,6 +15,7 @@ import ru.nshi.service.MessageService;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 public class MessageControllerImpl implements MessageController {
     @Autowired
@@ -26,7 +28,7 @@ public class MessageControllerImpl implements MessageController {
 
     @Override
     public Message getMessageById(Integer id) {
-        checkId(id);
+        log.info("Get message by id {}", id);
         return service.getById(id);
     }
 
