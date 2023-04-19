@@ -13,19 +13,46 @@ import java.util.List;
 public interface AuthorController {
     String MAPPING = "/author";
 
+    /**
+     * curl 'localhost:8080/author?size=0&page=3'
+     * @param size
+     * @param page
+     * @return
+     */
     @GetMapping
     ResponseEntity<List<Author>> getAll(@RequestParam(defaultValue = "10") int size,
                                         @RequestParam(defaultValue = "0") int page);
 
+    /**
+     * curl 'localhost:8080/author/1'
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     ResponseEntity<Author> getById(@PathVariable int id);
 
+    /**
+     * curl localhost:8080/author -X POST -H "Content-Type: application/json" -d '{"name": "Sergey 1"}' -v
+     * @param create
+     * @return
+     */
     @PostMapping
     ResponseEntity<?> create(@RequestBody CreateAuthor create);
 
+    /**
+     * curl localhost:8080/author/2 -X PATCH -v -H 'Content-Type: application/json' -d '{"avatar": "http://imgur.com/er12"}'
+     * @param id
+     * @param update
+     * @return
+     */
 //    @PatchMapping("/{id}")
 //    ResponseEntity<?> patchById(@PathVariable long id, @RequestBody Object update);
 
+    /**
+     * curl 'localhost:8080/author/1' -X DELETE
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     ResponseEntity<?> deleteById(@PathVariable int id);
 
