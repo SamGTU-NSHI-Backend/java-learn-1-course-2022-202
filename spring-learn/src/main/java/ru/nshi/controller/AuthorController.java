@@ -45,8 +45,17 @@ public interface AuthorController {
      * @param update
      * @return
      */
-//    @PatchMapping("/{id}")
-//    ResponseEntity<?> patchById(@PathVariable long id, @RequestBody Object update);
+    @PatchMapping("/{id}")
+    ResponseEntity<?> patchById(@PathVariable int id, @RequestBody CreateAuthor update);
+
+    /**
+     * curl localhost:8080/author/2 -X PUT -v -H 'Content-Type: application/json' -d '{"name": "test"}'
+     * @param id
+     * @param update
+     * @return
+     */
+    @PutMapping("/{id}")
+    ResponseEntity<?> putById(@PathVariable int id, @RequestBody CreateAuthor update);
 
     /**
      * curl 'localhost:8080/author/1' -X DELETE
@@ -61,5 +70,6 @@ public interface AuthorController {
     @Data
     class CreateAuthor {
         private String name;
+        private String avatar;
     }
 }

@@ -15,6 +15,7 @@ class AuthorMapper implements RowMapper<Author> {
         if (rs.wasNull()) {
             throw new ApiException("Author name cannot be null");
         }
-        return new Author(id, name);
+        String avatar = rs.getString(3);
+        return new Author(id, name, avatar);
     }
 }

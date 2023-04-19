@@ -2,7 +2,8 @@
 
 CREATE TABLE IF NOT EXISTS author (
     id int PRIMARY KEY AUTO_INCREMENT,
-    name varchar(63) UNIQUE
+    name varchar(63) UNIQUE,
+    avatar varchar(255) NULL
 );
 
 CREATE TABLE IF NOT EXISTS post (
