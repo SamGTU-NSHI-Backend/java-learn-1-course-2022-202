@@ -8,7 +8,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-.db
+*.db
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
