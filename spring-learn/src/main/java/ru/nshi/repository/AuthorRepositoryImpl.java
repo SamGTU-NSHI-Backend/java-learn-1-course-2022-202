@@ -34,15 +34,6 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         return Optional.ofNullable(author);
     }
 
-    class AuthorMapper implements RowMapper<Author> {
-        @Override
-        public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
-            int id = rs.getInt(1);
-            String name = rs.getString(2);
-            return new Author(id, name);
-        }
-    }
-
     @Override
     public Author create(AuthorController.CreateAuthor create) {
         String name = create.getName();
