@@ -1,0 +1,5 @@
+spring:
+  liquibase:
+    contexts: test
+  datasource:
+    url: jdbc:h2:mem:testDb
