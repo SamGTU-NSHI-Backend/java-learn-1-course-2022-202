@@ -24,3 +24,8 @@ spring:
       date: yyyy-MM-dd
       date-time: yyyy-MM-dd'T'HH:mm:ss
       time: HH:mm:ss
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/master-changelog.xml
+    contexts: main

@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset rassafel:test_data_for_author_and_posts
 insert into author(id,name) values (1, 'John');
 insert into author(id,name) values (2, 'Ivan');
 insert into author(id,name) values (3, 'Egor');
